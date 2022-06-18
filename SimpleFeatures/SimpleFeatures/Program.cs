@@ -1,12 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
+using SimpleFeatures.YieldReturn;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<SomeSolution>().As<ISolution>();
+    builder.RegisterType<YieldReturn>().As<ISolution>();
     _container = builder.Build();
 }
 
