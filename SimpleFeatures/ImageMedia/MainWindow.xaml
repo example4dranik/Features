@@ -1,0 +1,20 @@
+﻿<Window x:Class="ImageMedia.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200">
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,10,10,10">
+                <Button x:Name="ShowImage" Content="Show image" Width="575" Click="ButtonShowImage_Click"></Button>
+                <Image Name="PreviewImage" Width="550" Height="500" HorizontalAlignment="Left" Margin="10,20,10,20" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,10,10,10">
+                <Button x:Name="ShowMedia" Content="Show media" Width="575" Click="ButtonShowMedia_Click"></Button>
+                <MediaElement Name="PreviewMedia" Width="550" Height="500" Margin="10,20,10,20" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
