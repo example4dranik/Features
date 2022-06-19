@@ -10,7 +10,7 @@ namespace SimpleFeatures.PrincipalWindowsIdentity
             string path = @"c:\sandbox\";
             string NtAccountName = WindowsIdentity.GetCurrent().Name; // @"MyDomain\MyUserOrGroup";
 
-            DirectoryInfo di = new DirectoryInfo(path);
+            var di = new DirectoryInfo(path);
             DirectorySecurity acl = di.GetAccessControl(AccessControlSections.None);
             AuthorizationRuleCollection rules = acl.GetAccessRules(true, true, typeof(NTAccount));
 

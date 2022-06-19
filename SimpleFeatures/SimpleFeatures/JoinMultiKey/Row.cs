@@ -2,15 +2,15 @@
 {
     public class Row
     {
-        public int id { get; set; }
-        public string field1 { get; set; }
-        public string field2 { get; set; }
+        public int Id { get; set; }
+        public string Field1 { get; set; }
+        public string Field2 { get; set; }
 
         public Row(int i, string f1, string f2)
         {
-            id = i;
-            field1 = f1;
-            field2 = f2;
+            Id = i;
+            Field1 = f1;
+            Field2 = f2;
         }
     }
 }

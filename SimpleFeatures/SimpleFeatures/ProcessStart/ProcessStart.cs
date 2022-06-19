@@ -6,33 +6,36 @@ namespace SimpleFeatures.ProcessStart
     {
         public void Execute()
         {
-            List<string> listSoft = new List<string>();
-            listSoft.Add("c:" + Path.DirectorySeparatorChar);
-            listSoft.Add("Program Files");
-            listSoft.Add("Notepad++");
-            listSoft.Add("notepad++.exe");
-
-            List<string> listFile = new List<string>();
-            listFile.Add("c:" + Path.DirectorySeparatorChar);
-            listFile.Add("1.txt");
-
-            using (Process myProcess = new Process())
+            var listSoft = new List<string>
             {
-                ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(Path.Combine(listSoft.ToArray()));
+                "c:" + Path.DirectorySeparatorChar,
+                "Program Files",
+                "Notepad++",
+                "notepad++.exe"
+            };
 
-                myProcessStartInfo.UseShellExecute = false;
-                myProcessStartInfo.RedirectStandardOutput = true;
-                myProcessStartInfo.RedirectStandardError = true;
-                myProcessStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                myProcessStartInfo.Arguments = Path.Combine(listFile.ToArray());
-                myProcess.StartInfo = myProcessStartInfo;
-                myProcess.Start();
+            var listFile = new List<string>
+            {
+                "c:" + Path.DirectorySeparatorChar,
+                "1.txt"
+            };
 
-                StreamReader myStreamReader = myProcess.StandardError;
-                Console.WriteLine(myStreamReader.ReadLine());
-                myStreamReader = myProcess.StandardOutput;
-                Console.WriteLine(myStreamReader.ReadLine());
-            }
+            using var myProcess = new Process();
+            var myProcessStartInfo = new ProcessStartInfo(Path.Combine(listSoft.ToArray()))
+            {
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                WindowStyle = ProcessWindowStyle.Hidden,
+                Arguments = Path.Combine(listFile.ToArray())
+            };
+            myProcess.StartInfo = myProcessStartInfo;
+            myProcess.Start();
+
+            StreamReader myStreamReader = myProcess.StandardError;
+            Console.WriteLine(myStreamReader.ReadLine());
+            myStreamReader = myProcess.StandardOutput;
+            Console.WriteLine(myStreamReader.ReadLine());
         }
     }
 }

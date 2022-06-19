@@ -22,7 +22,7 @@ namespace SimpleFeatures.LoadWebPageAndRegex
             listUrls.ForEach(u => Console.WriteLine($"{u}: {ExtractAltImgFromPage(u)}"));
         }
 
-        private string ExtractAltImgFromPage(string url)
+        private static string ExtractAltImgFromPage(string url)
         {
             string answer = string.Empty;
 

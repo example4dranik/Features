@@ -18,17 +18,15 @@ namespace SimpleFeatures.MarshalSize
             Console.WriteLine($"string={str.Length}");
             Console.WriteLine($"bytes[]={bytes.Length}");
             Console.WriteLine($"List<int>={GetBytes(list).Length}");
-            Console.WriteLine($"{nameof(TestClass)}={GetSizeOfObject(new TestClass { f1 = 1, f2 = 2 })}");
+            Console.WriteLine($"{nameof(TestClass)}={GetSizeOfObject(new TestClass { F1 = 1, F2 = 2 })}");
         }
 
-        private byte[] GetBytes<T>(T obj)
+        private static byte[] GetBytes<T>(T obj)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            using (MemoryStream ms = new MemoryStream())
-            {
-                bf.Serialize(ms, obj);
-                return ms.ToArray();
-            }
+            var bf = new BinaryFormatter();
+            using var ms = new MemoryStream();
+            bf.Serialize(ms, obj);
+            return ms.ToArray();
         }
 
         public static int GetSizeOfObject(object obj, int avgStringSize = -1)
@@ -48,13 +46,12 @@ namespace SimpleFeatures.MarshalSize
                     size += pointerSize;
                     if (field.FieldType.IsArray)
                     {
-                        var array = field.GetValue(obj) as Array;
-                        if (array != null)
+                        if (field.GetValue(obj) is Array array)
                         {
                             var elementType = array.GetType().GetElementType();
                             if (elementType.IsValueType)
                             {
-                                size += System.Runtime.InteropServices.Marshal.SizeOf(field.FieldType) * array.Length;
+                                size += Marshal.SizeOf(field.FieldType) * array.Length;
                             }
                             else
                             {
@@ -78,7 +75,7 @@ namespace SimpleFeatures.MarshalSize
 
     internal class TestClass
     {
-        public int f1 { get; set; }
-        public int f2 { get; set; }
+        public int F1 { get; set; }
+        public int F2 { get; set; }
     }
 }
