@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
-using SimpleFeatures.PrincipalWindowsIdentity;
+using SimpleFeatures.MarshalSize;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<PrincipalWindowsIdentity>().As<ISolution>();
+    builder.RegisterType<MarshalSize>().As<ISolution>();
     _container = builder.Build();
 }
 
