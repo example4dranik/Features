@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
-using SimpleFeatures.LoadWebPageAndRegex;
+using SimpleFeatures.JoinMultiKey;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<LoadWebPageAndRegex>().As<ISolution>();
+    builder.RegisterType<JoinMultiKey>().As<ISolution>();
     _container = builder.Build();
 }
 
