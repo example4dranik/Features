@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
-using SimpleFeatures.ProcessStart;
+using SimpleFeatures.ScanFiles;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<ProcessStart>().As<ISolution>();
+    builder.RegisterType<ScanFiles>().As<ISolution>();
     _container = builder.Build();
 }
 
