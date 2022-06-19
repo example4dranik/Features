@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
-using SimpleFeatures.ScanFiles;
+using SimpleFeatures.LoadWebPageAndRegex;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<ScanFiles>().As<ISolution>();
+    builder.RegisterType<LoadWebPageAndRegex>().As<ISolution>();
     _container = builder.Build();
 }
 
