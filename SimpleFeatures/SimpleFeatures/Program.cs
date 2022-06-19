@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
-using SimpleFeatures.JoinMultiKey;
+using SimpleFeatures.PrincipalWindowsIdentity;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<JoinMultiKey>().As<ISolution>();
+    builder.RegisterType<PrincipalWindowsIdentity>().As<ISolution>();
     _container = builder.Build();
 }
 
