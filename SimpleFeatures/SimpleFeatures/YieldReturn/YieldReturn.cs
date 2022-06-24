@@ -12,6 +12,16 @@
                 Console.WriteLine();
             }
 
+            var array = collection.ToArray();
+            foreach (var batch in array.SplitBy(4))
+            {
+                foreach (var it in batch)
+                {
+                    Console.Write($" {it.Value} ");
+                }
+                Console.WriteLine();
+            }
+
             var num = new Numerator();
             foreach (var e in num.GetInt())
             {

@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
-using SimpleFeatures.MarshalSize;
+using SimpleFeatures.YieldReturn;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<MarshalSize>().As<ISolution>();
+    builder.RegisterType<YieldReturn>().As<ISolution>();
     _container = builder.Build();
 }
 
