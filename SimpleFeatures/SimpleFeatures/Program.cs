@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
-using SimpleFeatures.YieldReturn;
+using SimpleFeatures.XmlDeserializator;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<YieldReturn>().As<ISolution>();
+    builder.RegisterType<XmlDeserializator>().As<ISolution>();
     _container = builder.Build();
 }
 
