@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using SimpleFeatures;
-using SimpleFeatures.XmlDeserializator;
+using SimpleFeatures.AutoMapper;
 
 IContainer _container;
 
 void RegisterType()
 {
     var builder = new ContainerBuilder();
-    builder.RegisterType<XmlDeserializator>().As<ISolution>();
+    builder.RegisterType<AutoMapperExampleUse>().As<ISolution>();
     _container = builder.Build();
 }
 
